@@ -111,22 +111,18 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
 
-    /* -- Sample board code for User push-button in interrupt mode ---- */
-    if (BspButtonState == BUTTON_PRESSED)
-    {
-      /* Update button state */
-      BspButtonState = BUTTON_RELEASED;
-      /* -- Sample board code to toggle leds ---- */
-      BSP_LED_Toggle(LED2);
-      /* ..... Perform your action ..... */
-    }
-    /* USER CODE END WHILE */
+	  /* Infinite loop */
+	  /* USER CODE BEGIN WHILE */
+	  while (1)
+	  {
+	    /* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
-  }
+	    /* USER CODE BEGIN 3 */
+	    HAL_GPIO_TogglePin(LED2_GPIO_PORT, LED2_PIN);  // zmień stan diody
+	    HAL_Delay(500);                              // czekaj 500 ms
+	  }
+	  /* USER CODE END 3 */
   /* USER CODE END 3 */
 }
 
